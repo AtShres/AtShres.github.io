@@ -17,19 +17,14 @@
 
         body {
             font-family: 'Quicksand', sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             color: var(--text-color);
             background-color: #fff;
             scroll-behavior: smooth;
         }
 
-        h1, h2, h3 {
-            font-family: 'Fredoka One', cursive;
-            color: #4a4a4a;
-        }
+        h1, h2, h3 { font-family: 'Fredoka One', cursive; color: #4a4a4a; }
 
-        /* --- Navigation --- */
         nav {
             background-color: white;
             padding: 1rem 2rem;
@@ -37,180 +32,52 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            position: sticky; top: 0; z-index: 1000;
         }
 
-        /* Fun & Bold Logo Title */
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-family: 'Fredoka One', cursive;
-            font-size: 1.8rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            cursor: pointer;
-        }
+        .logo { display: flex; align-items: center; gap: 12px; font-family: 'Fredoka One', cursive; font-size: 1.8rem; cursor: pointer; }
+        .logo span { background: linear-gradient(45deg, #ff9248, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-logo-img { height: 50px; width: auto; transition: transform 0.3s ease; }
+        .logo:hover .nav-logo-img { transform: rotate(-10deg) scale(1.1); }
 
-        .logo span {
-            background: linear-gradient(45deg, #ff9248, #ff6b6b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(2px 2px 0px var(--soft-yellow));
-        }
-
-        .nav-logo-img {
-            height: 50px;
-            width: auto;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover .nav-logo-img {
-            transform: rotate(-10deg) scale(1.1);
-        }
-
-        .nav-links {
-            font-weight: 600;
-            color: var(--text-color);
-        }
-
-        /* --- Hero Section --- */
         .hero {
             background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('Tunes.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            padding: 100px 20px;
-            text-align: center;
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-            color: white;
+            background-size: cover; background-position: center;
+            padding: 100px 20px; text-align: center;
+            border-bottom-left-radius: 50px; border-bottom-right-radius: 50px; color: white;
         }
 
-        .hero h1 {
-            color: white;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-            font-size: 3.5rem;
-            margin: 0;
-        }
+        .hero h1 { color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); font-size: 3.5rem; margin: 0; }
 
-        .hero p {
-            font-weight: 600;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
-            font-size: 1.2rem;
-        }
-
-        /* --- Product Grid (Centered) --- */
-        .container {
-            max-width: 1100px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-
-        .grid {
-            display: grid;
-            /* Changed to auto-fit to ensure items center themselves */
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            justify-content: center; /* This centers the items horizontally */
-            justify-items: center;   /* This centers the cards in their columns */
-        }
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; justify-content: center; justify-items: center; }
 
         .card {
-            background: white;
-            b-radius: 25px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            border: 2px solid #f0f0f0;
-            width: 100%;
-            max-width: 320px;
+            background: white; border-radius: 25px; padding: 20px; text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease;
+            border: 2px solid #f0f0f0; width: 100%; max-width: 320px;
         }
+        .card:hover { transform: translateY(-10px); border-color: var(--soft-pink); }
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--soft-pink);
-        }
-
-        .product-img-placeholder {
-            width: 100%;
-            height: 200px;
-            background: #f9f9f9;
-            border-radius: 15px;
-            margin-bottom: 15px;
-            object-fit: cover;
-        }
-
-        .price {
-            font-weight: bold;
-            color: var(--accent-orange);
-            font-size: 1.4rem;
-            margin: 10px 0;
-        }
+        .product-img-placeholder { width: 100%; height: 200px; background: #f9f9f9; border-radius: 15px; margin-bottom: 15px; object-fit: cover; }
+        .price { font-weight: bold; color: var(--accent-orange); font-size: 1.4rem; margin: 10px 0; }
 
         .order-btn {
-            background-color: var(--accent-orange);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 10px;
-            font-family: 'Quicksand', sans-serif;
-            transition: background 0.3s;
+            background-color: var(--accent-orange); color: white; border: none;
+            padding: 12px 30px; border-radius: 50px; font-weight: 600; cursor: pointer;
+            transition: background 0.3s; font-family: 'Quicksand', sans-serif;
         }
+        .order-btn:hover { background-color: #e87a2e; }
+        .order-btn:disabled { background-color: #ccc; cursor: not-allowed; }
 
-        .order-btn:hover {
-            background-color: #e87a2e;
-        }
-
-        /* --- Modal --- */
         .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6);
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 2000;
         }
-
-        .modal-content {
-            background: white;
-            padding: 40px;
-            border-radius: 30px;
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-            position: relative;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 2px solid var(--soft-blue);
-            border-radius: 10px;
-            box-sizing: border-box;
-            font-family: 'Quicksand', sans-serif;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px; right: 20px;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
-        .success-msg {
-            display: none;
-            color: #2ecc71;
-            font-weight: 600;
-        }
+        .modal-content { background: white; padding: 40px; border-radius: 30px; width: 90%; max-width: 400px; text-align: center; position: relative; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 2px solid var(--soft-blue); border-radius: 10px; box-sizing: border-box; }
+        .close-modal { position: absolute; top: 15px; right: 20px; cursor: pointer; font-size: 1.5rem; }
+        .success-msg { display: none; color: #2ecc71; font-weight: 600; }
     </style>
 </head>
 <body>
@@ -230,28 +97,25 @@
 
 <div class="container">
     <h2 style="text-align: center; margin-bottom: 40px; font-size: 2.5rem;">Our Little Collection</h2>
-    
     <div class="grid">
         <div class="card">
             <img src="Product_1.png" alt="Toy" class="product-img-placeholder">
             <h3>Wooden Blocks</h3>
-            <p>Perfect for building imagination and motor skills.</p>
+            <p>Building imagination and motor skills.</p>
             <p class="price">$24.99</p>
             <button class="order-btn" onclick="openOrder('Wooden Blocks')">Order Now</button>
         </div>
-
         <div class="card">
             <img src="Product_2.png" alt="Book" class="product-img-placeholder">
             <h3>ABC Flashcards</h3>
-            <p>Colorful illustrations to help learn the alphabet.</p>
+            <p>Colorful illustrations to learn the alphabet.</p>
             <p class="price">$12.50</p>
             <button class="order-btn" onclick="openOrder('ABC Flashcards')">Order Now</button>
         </div>
-
         <div class="card">
             <img src="Product_3.png" alt="Puzzle" class="product-img-placeholder">
             <h3>Shape Sorter</h3>
-            <p>Classic wooden toy for cognitive development.</p>
+            <p>Classic wooden toy for development.</p>
             <p class="price">$18.00</p>
             <button class="order-btn" onclick="openOrder('Shape Sorter')">Order Now</button>
         </div>
@@ -266,63 +130,24 @@
             <p>Please leave your details below:</p>
             <input type="text" id="userName" placeholder="Your Name" required>
             <input type="tel" id="userPhone" placeholder="Contact Number" required>
-            <button class="order-btn" style="width: 100%;" onclick="submitOrder()">Submit Order</button>
+            <button id="submitBtn" class="order-btn" style="width: 100%;" onclick="submitOrder()">Submit Order</button>
         </div>
         <div id="successArea" class="success-msg">
             <div style="font-size: 4rem;">🎉</div>
             <h2>Thank you!</h2>
-            <p>We'll get back to you soon.</p>
+            <p id="thanksText">We'll get back to you soon.</p>
             <button class="order-btn" onclick="closeOrder()">Close</button>
         </div>
     </div>
 </div>
 
 <script>
-    const modal = document.getElementById('orderModal');
-    const formArea = document.getElementById('orderFormArea');
-    const successArea = document.getElementById('successArea');
-    const itemTitle = document.getElementById('selectedItem');
-
-    function openOrder(itemName) {
-        itemTitle.innerText = "Order: " + itemName;
-        modal.style.display = 'flex';
-        formArea.style.display = 'block';
-        successArea.style.display = 'none';
-    }
-
-    function closeOrder() {
-        modal.style.display = 'none';
-    }
-
-    function submitOrder() {
-        const name = document.getElementById('userName').value;
-        const phone = document.getElementById('userPhone').value;
-
-        if(name && phone) {
-            formArea.style.display = 'none';
-            successArea.style.display = 'block';
-            document.getElementById('userName').value = '';
-            document.getElementById('userPhone').value = '';
-        } else {
-            alert("Please fill in all fields!");
-        }
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            closeOrder();
-        }
-    }
-</script>
-
-    <script>
-    const modal = document.getElementById('orderModal');
-    const formArea = document.getElementById('orderFormArea');
-    const successArea = document.getElementById('successArea');
-    const itemTitle = document.getElementById('selectedItem');
-
-    // 1. PASTE YOUR GOOGLE WEB APP URL HERE
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyZ-_KTQaWMsUZnpD6ekO2tXDK2x8VhZT7hRLQX3aZlbbDPUxHWDznqSO7wuFsSgow/exec';
+    
+    const modal = document.getElementById('orderModal');
+    const formArea = document.getElementById('orderFormArea');
+    const successArea = document.getElementById('successArea');
+    const itemTitle = document.getElementById('selectedItem');
 
     function openOrder(itemName) {
         itemTitle.innerText = "Order: " + itemName;
@@ -335,49 +160,37 @@
         modal.style.display = 'none';
     }
 
-    // 2. UPDATED ASYNC FUNCTION
     async function submitOrder() {
         const name = document.getElementById('userName').value;
         const phone = document.getElementById('userPhone').value;
-        const item = itemTitle.innerText.replace("Order: ", ""); // Gets the toy name
-        const btn = document.querySelector("#orderFormArea .order-btn");
+        const item = itemTitle.innerText.replace("Order: ", "");
+        const btn = document.getElementById('submitBtn');
 
         if(name && phone) {
-            // Show loading state
             btn.innerText = "Sending...";
             btn.disabled = true;
-            btn.style.opacity = "0.7";
 
             try {
-                // Send data to Google Sheets
                 await fetch(scriptURL, {
                     method: 'POST',
                     mode: 'no-cors', 
                     cache: 'no-cache',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                        name: name, 
-                        phone: phone,
-                        item: item // Added item name so you know what they bought!
-                    })
+                    body: JSON.stringify({ name: name, phone: phone, item: item })
                 });
 
-                // Success UI
                 formArea.style.display = 'none';
                 successArea.style.display = 'block';
+                document.getElementById('thanksText').innerText = "Thank you, " + name + "! We received your order for " + item + ".";
                 
-                // Clear inputs
+                // Reset fields
                 document.getElementById('userName').value = '';
                 document.getElementById('userPhone').value = '';
-
             } catch (error) {
-                console.error('Error!', error.message);
-                alert("Oh no! Our magic connection failed. Please check your internet.");
+                alert("Connection error! Please try again.");
             } finally {
-                // Reset button state
                 btn.innerText = "Submit Order";
                 btn.disabled = false;
-                btn.style.opacity = "1";
             }
         } else {
             alert("Please fill in all fields!");
@@ -385,17 +198,9 @@
     }
 
     window.onclick = function(event) {
-        if (event.target == modal) {
-            closeOrder();
-        }
+        if (event.target == modal) closeOrder();
     }
 </script>
 
 </body>
-
 </html>
-
-
-
-
-
