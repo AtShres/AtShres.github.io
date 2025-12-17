@@ -120,7 +120,7 @@
 
         .card {
             background: white;
-            border-radius: 25px;
+            b-radius: 25px;
             padding: 20px;
             text-align: center;
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
@@ -315,6 +315,86 @@
     }
 </script>
 
+    <script>
+    const modal = document.getElementById('orderModal');
+    const formArea = document.getElementById('orderFormArea');
+    const successArea = document.getElementById('successArea');
+    const itemTitle = document.getElementById('selectedItem');
+
+    // 1. PASTE YOUR GOOGLE WEB APP URL HERE
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwnDizq-hzx-qOmAwxF6ks16ESjPz1CncSJMNrZZ3ocPc_wxqBc-YapHkqgk_fHYhI/exec';
+
+    function openOrder(itemName) {
+        itemTitle.innerText = "Order: " + itemName;
+        modal.style.display = 'flex';
+        formArea.style.display = 'block';
+        successArea.style.display = 'none';
+    }
+
+    function closeOrder() {
+        modal.style.display = 'none';
+    }
+
+    // 2. UPDATED ASYNC FUNCTION
+    async function submitOrder() {
+        const name = document.getElementById('userName').value;
+        const phone = document.getElementById('userPhone').value;
+        const item = itemTitle.innerText.replace("Order: ", ""); // Gets the toy name
+        const btn = document.querySelector("#orderFormArea .order-btn");
+
+        if(name && phone) {
+            // Show loading state
+            btn.innerText = "Sending...";
+            btn.disabled = true;
+            btn.style.opacity = "0.7";
+
+            try {
+                // Send data to Google Sheets
+                await fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    cache: 'no-cache',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        name: name, 
+                        phone: phone,
+                        item: item // Added item name so you know what they bought!
+                    })
+                });
+
+                // Success UI
+                formArea.style.display = 'none';
+                successArea.style.display = 'block';
+                
+                // Clear inputs
+                document.getElementById('userName').value = '';
+                document.getElementById('userPhone').value = '';
+
+            } catch (error) {
+                console.error('Error!', error.message);
+                alert("Oh no! Our magic connection failed. Please check your internet.");
+            } finally {
+                // Reset button state
+                btn.innerText = "Submit Order";
+                btn.disabled = false;
+                btn.style.opacity = "1";
+            }
+        } else {
+            alert("Please fill in all fields!");
+        }
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            closeOrder();
+        }
+    }
+</script>
+
 </body>
 
 </html>
+
+
+
+
